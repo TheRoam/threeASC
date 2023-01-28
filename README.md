@@ -25,3 +25,4 @@ https://theroamingworkshop.cloud/threeJS/models/asc/three_asc.html
 **Acknowledgements**
 
 Project based on threeJS "Terrain - Raycast" example and community contributions.
+![teide2](https://user-images.githubusercontent.com/63456390/215273252-0cf53456-5715-4671-886e-e5c84c41840c.png)
