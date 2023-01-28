@@ -16,6 +16,7 @@ It works by reading every value in the ASCII file and passing them to the vertic
 * Georeferencing mesh.
 * Working with multiple mesh tiles.
 * Interactive edition of mesh vertical scale.
+* Make this an independent library as it now proxies between main .html and ascii_data.js
 
 **WIP Demo**
 
