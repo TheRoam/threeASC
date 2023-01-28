@@ -10,3 +10,7 @@ You can also toggle elevation display (disabled at start for performance)
 **WIP Demo**
 
 https://theroamingworkshop.cloud/threeJS/models/asc/three_asc.html
+
+**Acknowledgements**
+
+Project based on threeJS "Terrain - Raycast" example and community contributions.
