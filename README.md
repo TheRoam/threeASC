@@ -1,3 +1,4 @@
+![columbretes](https://user-images.githubusercontent.com/63456390/215267062-a8a1fd75-13e5-41c4-95d2-3e3f2cf1f787.png)
 # threeASC
 An ASCII file explorer to visualize terrain Digital Elevation Models (DEM) easily with ThreeJS.
 
