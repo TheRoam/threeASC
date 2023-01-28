@@ -1,11 +1,20 @@
 # threeASC
 An ASCII file explorer to visualize terrain Digital Elevation Models (DEM) easily with ThreeJS.
 
-Just load an ASC terrain file and a satellite image. You can use the files in **"dem"** and **"img"** folders.
-
 It works by reading every value in the ASCII file and passing them to the vertices of a 3D mesh.
 
-You can also toggle elevation display (disabled at start for performance)
+**Features**
+
+* Load .asc (ASCII) terrain elevation local file.
+* Load satellite image texture in standard format (.jpg, .png, etc).
+* Display elevation on mouse position using raycast (disabled at start for performance).
+* Vertical elevation scale can be adjusted with hSCALE variable.
+
+**Future additions**
+
+* Georeferencing mesh.
+* Working with multiple mesh tiles.
+* Interactive edition of mesh vertical scale.
 
 **WIP Demo**
 
