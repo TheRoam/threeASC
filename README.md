@@ -1,5 +1,5 @@
 # threeASC
-An ASCII file explorer conceived to visualize terrain Digital Elevation Models (DEM) easily with ThreeJS.
+An ASCII file explorer to visualize terrain Digital Elevation Models (DEM) easily with ThreeJS.
 
 Just load an ASC terrain file and a satellite image. You can use the files in **"dem"** and **"img"** folders.
 
