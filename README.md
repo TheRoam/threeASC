@@ -20,7 +20,7 @@ It works by reading every value in the ASCII file and passing them to the vertic
 
 **WIP Demo**
 
-https://theroamingworkshop.cloud/threeJS/models/asc/three_asc.html
+https://theroamingworkshop.cloud/threeJS/models/asc
 
 **Acknowledgements**
 
