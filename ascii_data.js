@@ -1,12 +1,19 @@
 //Process and return ASCII grid data and elevation in an array
 
-async function threeASC(dat,dataP,imgP){
+//load user files
+async function threeASCuser(dat,dataP,imgP){
 	//create div for buttons
 	var div=document.createElement("div");
 	div.setAttribute("id", "btnDiv");
 	div.setAttribute("style", "display:flex;position:absolute;top:10px;left:10px;flex-direction:column;font-family:Arial;justify-content:center;");
 	document.body.appendChild(div);
 	div=document.getElementById("btnDiv");
+	
+	var tit=document.createElement("p");
+	tit.setAttribute("id", "title");
+	tit.setAttribute("style", "font-size:12px;font-weight:bold;user-select:none;color:white;background-color: rgba(0,0,0,0.75);width:125px;margin-top:10px;padding:5px 5px 5px 0px;text-align:center;");
+	div.appendChild(tit);
+	document.getElementById("title").innerHTML="threeASCdem v0.2";
 
 	//create input for ASCIIfile
 	var inp=document.createElement("input");
@@ -72,7 +79,71 @@ async function threeASC(dat,dataP,imgP){
 	}
 }
 
-//function to extract data to variables
+//load demo files
+async function threeASCdemo(dat,dataP,imgP,pths){
+	var div=document.getElementById("btnDiv");
+	
+	var demos=document.createElement("p");
+	demos.setAttribute("id", "demosTit");
+	demos.setAttribute("style", "font-size:14px;text-decoration:underline");
+	div.appendChild(demos);
+	document.getElementById("demosTit").innerHTML="Demo locations";
+	
+	//add checkboxes for demo files
+	for(var p=0;p<pths.length;p++){
+		var chkDiv=document.createElement("div");
+		chkDiv.setAttribute("id","chkDiv"+(p+1));
+		chkDiv.setAttribute("style","display:flex;flex-direction:row");
+		div.appendChild(chkDiv);
+		var chk=document.createElement("input");
+		chk.setAttribute("type", "checkbox");
+		chk.setAttribute("id", "chk"+(p+1));
+		chk.setAttribute("name", "chk"+(p+1));
+		chk.setAttribute("value", pths[p].name);
+		chk.setAttribute("style", "display:flex;flex-direction:row;");
+		chkDiv.appendChild(chk);
+		chk=document.getElementById("chk"+(p+1));
+		//function when checking
+		chk.addEventListener("change",function(){
+			var id=this.id[this.id.length-1];
+			//call loader
+			switchLoader("");
+			//disable all other items
+			for(var c=0;c<pths.length;c++){
+				document.getElementById("chk"+(c+1)).checked=false;
+				//make sure current is checked
+				this.checked=true;
+			}
+			//get ASCII
+			var xASC=new XMLHttpRequest();
+			xASC.onload=function(){
+				getData(this.responseText,dat,dataP);
+				return dat;
+			}
+			//when DEM loaded, load image
+			xASC.onloadend=function(){
+				//call loader
+				switchLoader("");
+				setTimeout(function(){
+					imgP.src="";
+					imgP.src=pths[id-1].img;
+				},10000);
+			}
+			xASC.open("GET", pths[id-1].asc);
+			xASC.send();
+		});
+		var chkLb=document.createElement("label");
+		chkLb.setAttribute("id", "chkLb"+(p+1));
+		chkDiv.appendChild(chkLb);
+		document.getElementById("chkLb"+(p+1)).innerHTML=pths[p].name;
+	}
+	//check first location
+	//document.getElementById("chk1").checked=true;
+	let event = new Event("change");
+	document.getElementById("chk1").dispatchEvent(event);
+}
+
+//extract data to variables
 async function getData(file,d,dP){
 	//extract file data
 	//line 1 - ncols			(terrain width)
