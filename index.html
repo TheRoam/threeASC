@@ -120,8 +120,19 @@
 				}
 			});
 			
-			//launch threeASC
-			threeASC(data,dataProxy,imageProxy);
+			//launch threeASCdem for user files
+			threeASCuser(data,dataProxy,imageProxy);
+			
+			//launch threeASCdem for demo files
+			var paths=[
+			{"name":"Columbretes",
+			"asc":"./dem/Columbretes_DTM5b.asc",
+			"img":"./img/Columbretes_satHQ.jpg"},
+			{"name":"Tenerife",
+			"asc":"./dem/Tenerife_MDT25_IGN.asc",
+			"img":"./img/Tenerife_ESRI_hq.jpg"}
+			];
+			threeASCdemo(data,dataProxy,imageProxy,paths);
 			
 			//raycaster
 			const raycaster = new THREE.Raycaster();
@@ -176,10 +187,10 @@
 				controls.target.y=mesh.position.y;
 				controls.target.z=mesh.position.z;*/
 				animate();
-				
+
 				//remove loader
 				switchLoader("");
-				
+
 			}
 			
 			function texImage(){
