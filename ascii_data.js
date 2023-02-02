@@ -5,7 +5,7 @@ async function threeASCuser(dat,dataP,imgP){
 	//create div for buttons
 	var div=document.createElement("div");
 	div.setAttribute("id", "btnDiv");
-	div.setAttribute("style", "display:flex;background-color:rgba(255,255,255,0.25);position:absolute;top:10px;left:10px;flex-direction:column;font-family:Arial;justify-content:center;");
+	div.setAttribute("style", "display:flex;background-color:rgba(255,255,255,0.25);position:absolute;top:10px;left:10px;flex-direction:column;font-family:Arial;justify-content:center;padding:0 5px 5px 5px;border-radius:3px;");
 	document.body.appendChild(div);
 	div=document.getElementById("btnDiv");
 	
